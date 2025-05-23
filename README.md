@@ -61,4 +61,27 @@ This is a prototype implementation of data communication using **Light Fidelity 
 
 ---
 
+## 🔧 Hardware Setup
+
+### 📤 Transmitter Side
+- **Arduino Mega 2560** – main controller
+- **Laser Module (3-pin)** – acts as the optical transmitter
+- **SD Card Module** – connected via SPI to read file data
+  - **CS pin**: 53  
+  - **MOSI/MISO/SCK**: standard SPI pins
+- **File** stored on SD card (e.g., `.txt`)
+- **Pin 8** – controls the laser ON/OFF based on bit encoding
+
+### 📥 Receiver Side
+- **Arduino Mega 2560** – main controller
+- **LDR Sensor** – detects laser light intensity
+- **Voltage Divider Circuit** – with a fixed resistor (e.g., 10kΩ)
+- **Analog Pin A0** – reads LDR voltage
+- **Threshold** – calibrated value (e.g., `528`) to differentiate light ON vs OFF
+
+### 📡 Physical Alignment
+- The **laser** must be precisely aligned to directly hit the **LDR sensor**
+- Ideal in a **dark or controlled light environment** to reduce noise
+- Distance between laser and LDR: typically a few centimeters to meters (based on beam strength and LDR sensitivity)
+
 
